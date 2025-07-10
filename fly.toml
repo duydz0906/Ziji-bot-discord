@@ -1,0 +1,22 @@
+# fly.toml app configuration file generated for ziji-bot-discord-main-solitary-wave-7143 on 2025-07-10T08:52:14+07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'ziji-bot-discord-main-solitary-wave-7143'
+primary_region = 'sin'
+
+[build]
+
+[http_service]
+  internal_port = 2003
+  force_https = true
+  auto_stop_machines = false      # <-- Tắt auto stop
+  auto_start_machines = false     # <-- Tắt auto start (tùy chọn)
+  min_machines_running = 1        # <-- Luôn giữ ít nhất 1 máy chạy
+  processes = ['app']
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
