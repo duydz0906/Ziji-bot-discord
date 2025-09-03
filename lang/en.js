@@ -59,6 +59,17 @@ module.exports = {
 		win: "You guessed correctly!",
 		lose: "You guessed wrong!",
 	},
+	OverUnder: {
+		chosen: "You chose",
+		result: "Result",
+		over: "Over (8-12)",
+		under: "Under (2-6)",
+		exactly: "It's exactly 7!",
+		tie: "It's a tie! No coins lost.",
+		win: "You won!",
+		lose: "You lost!",
+		bet: "Bet",
+	},
 	Ping: {
 		Description: "Hey ##username##! Here's my **latency** and **ping** status:",
 		Roundtrip: "🔄 Round-trip Latency",

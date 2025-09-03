@@ -59,6 +59,17 @@ module.exports = {
 		win: "Bạn đã đoán đúng!",
 		lose: "Bạn đã đoán sai!",
 	},
+	OverUnder: {
+		chosen: "Bạn chọn",
+		result: "Kết quả",
+		over: "Tài (8-12)",
+		under: "Xỉu (2-6)",
+		exactly: "Ra đúng 7!",
+		tie: "Hòa! Bạn không mất coin.",
+		win: "Bạn thắng!",
+		lose: "Bạn thua!",
+		bet: "Tiền cược",
+	},
 	Ping: {
 		Description: "Chào ##username##! Đây là **độ trễ** và trạng thái **ping** của tôi:",
 		Roundtrip: "🔄 Độ trễ vòng lặp",
