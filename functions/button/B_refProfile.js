@@ -1,4 +1,4 @@
-const { useCommands } = require("@zibot/zihooks");
+const { useCommands } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "B_refProfile",

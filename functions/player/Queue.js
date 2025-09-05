@@ -7,7 +7,7 @@ const {
 	ButtonStyle,
 } = require("discord.js");
 const ZiIcons = require("./../../utility/icon");
-const config = require("@zibot/zihooks").useConfig();
+const config = require("@catbot/cathook").useConfig();
 
 const { Worker } = require("worker_threads");
 

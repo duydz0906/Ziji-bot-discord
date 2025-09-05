@@ -1,4 +1,4 @@
-const { useFunctions } = require("@zibot/zihooks");
+const { useFunctions } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "S_player_Track",

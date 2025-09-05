@@ -1,5 +1,5 @@
 const { useQueue } = require("discord-player");
-const { useFunctions } = require("@zibot/zihooks");
+const { useFunctions } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "B_queue_prev",

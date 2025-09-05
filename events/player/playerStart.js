@@ -1,5 +1,5 @@
 const { GuildQueue, Track, GuildQueueEvent } = require("discord-player");
-const { useFunctions, useConfig } = require("@zibot/zihooks");
+const { useFunctions, useConfig } = require("@catbot/cathook");
 
 const Functions = useFunctions();
 const config = useConfig();

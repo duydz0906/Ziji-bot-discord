@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require("discord.js");
-const { useFunctions } = require("@zibot/zihooks");
+const { useFunctions } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "coinflip",
@@ -27,7 +27,7 @@ module.exports.data = {
  * @param { import("../../lang/vi.js") } command.lang - language
  */
 module.exports.execute = async ({ interaction, lang }) => {
-	const ZiRank = useFunctions().get("ZiRank");
+	const CyberRank = useFunctions().get("CyberRank");
 	const choice = interaction.options.getString("side");
 	const result = Math.random() < 0.5 ? "heads" : "tails";
 	const win = choice === result;
@@ -45,5 +45,5 @@ module.exports.execute = async ({ interaction, lang }) => {
 
 	await interaction.reply({ embeds: [embed] });
 	const CoinADD = win ? 100 : -100;
-	await ZiRank.execute({ user: interaction.user, XpADD: 0, CoinADD });
+	await CyberRank.execute({ user: interaction.user, XpADD: 0, CoinADD });
 };

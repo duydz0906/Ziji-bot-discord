@@ -1,5 +1,5 @@
 const { Events, Message } = require("discord.js");
-const { useResponder, useConfig, useFunctions, useCommands, useLogger, modinteraction, useAI } = require("@zibot/zihooks");
+const { useResponder, useConfig, useFunctions, useCommands, useLogger, modinteraction, useAI } = require("@catbot/cathook");
 const config = useConfig();
 const { useQueue } = require("discord-player");
 const mentionRegex = /@(everyone|here|ping)/;
@@ -21,7 +21,7 @@ module.exports.execute = async (message) => {
 	if (!message.client.isReady()) return;
 	if (message.author.bot) return;
 	// Get the user's language preference
-	const langfunc = Functions.get("ZiRank");
+	const langfunc = Functions.get("CyberRank");
 	const lang = await langfunc.execute({ user: message.author, XpADD: 0 });
 	//tts
 	if (message.channel.isThread() && message.channel.name.startsWith(`${message?.client?.user?.username} TTS |`)) {

@@ -1,5 +1,5 @@
 const { useQueue, serialize, decode, encode } = require("discord-player");
-const { useFunctions, useDB, useConfig } = require("@zibot/zihooks");
+const { useFunctions, useDB, useConfig } = require("@catbot/cathook");
 const Functions = useFunctions();
 const config = useConfig();
 const {
@@ -10,7 +10,7 @@ const {
 	AttachmentBuilder,
 	EmbedBuilder,
 } = require("discord.js");
-const Encryptor = require("@zibot/ziencryptor");
+const Encryptor = require("@catbot/ziencryptor");
 
 module.exports.data = {
 	name: "S_player_Func",
@@ -111,7 +111,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 		case "unmute": {
 			const volumd = config?.PlayerConfig.volume ?? 100;
 			if (volumd === "auto") {
-				volumd = DataBase ? ((await DataBase.ZiUser.findOne({ userID: user.id }))?.volume ?? 100) : 100;
+				volumd = DataBase ? ((await DataBase.CatUser.findOne({ userID: user.id }))?.volume ?? 100) : 100;
 			}
 			const Vol = Math.min(volumd + 10, 100);
 			queue.node.setVolume(Vol);
@@ -122,7 +122,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 			const current_Vol = queue.node.volume;
 			const Vol = Math.min(current_Vol + 10, 100);
 			if (DataBase) {
-				await DataBase.ZiUser.updateOne({ userID: user.id }, { $set: { volume: Vol }, $upsert: true });
+				await DataBase.CatUser.updateOne({ userID: user.id }, { $set: { volume: Vol }, $upsert: true });
 			}
 			queue.node.setVolume(Vol);
 			await Update_Player(queue);
@@ -132,7 +132,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 			const current_Vol = queue.node.volume;
 			const Vol = Math.max(current_Vol - 10, 0);
 			if (DataBase) {
-				await DataBase.ZiUser.updateOne({ userID: user.id }, { $set: { volume: Vol }, $upsert: true });
+				await DataBase.CatUser.updateOne({ userID: user.id }, { $set: { volume: Vol }, $upsert: true });
 			}
 			queue.node.setVolume(Vol);
 			await Update_Player(queue);

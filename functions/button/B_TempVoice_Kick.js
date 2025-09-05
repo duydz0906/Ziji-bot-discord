@@ -1,4 +1,4 @@
-const { useDB } = require("@zibot/zihooks");
+const { useDB } = require("@catbot/cathook");
 const { TextInputStyle, ModalBuilder, ActionRowBuilder, TextInputBuilder } = require("discord.js");
 
 module.exports.data = {

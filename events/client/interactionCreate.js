@@ -1,5 +1,5 @@
 const { Events, CommandInteraction, PermissionsBitField, MessageFlags } = require("discord.js");
-const { useCooldowns, useCommands, useFunctions, useConfig, useLogger } = require("@zibot/zihooks");
+const { useCooldowns, useCommands, useFunctions, useConfig, useLogger } = require("@catbot/cathook");
 const config = useConfig();
 const fs = require("fs");
 const path = require("path");
@@ -100,7 +100,7 @@ module.exports.execute = async (interaction) => {
 	}
 
 	// Get the user's language preference
-	const langfunc = Functions.get("ZiRank");
+	const langfunc = Functions.get("CyberRank");
 	const lang = await langfunc.execute({ user, XpADD: interaction.isAutocomplete() ? 0 : 1 });
 
 	// Try to execute the command and handle errors

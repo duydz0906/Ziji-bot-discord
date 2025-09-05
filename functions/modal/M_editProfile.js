@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require("discord.js");
-const { useDB, useConfig } = require("@zibot/zihooks");
+const { useDB, useConfig } = require("@catbot/cathook");
 const HEX_COLOR_REGEX = /^#[0-9A-F]{6}$/i;
 
 module.exports.data = {
@@ -17,7 +17,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 	await interaction.deferReply().catch(() => {});
 	let hexColor = interaction.fields.getTextInputValue("Probcolor");
 
-	const success = await useDB().ZiUser.updateOne(
+	const success = await useDB().CatUser.updateOne(
 		{ userID: interaction.user.id },
 		{
 			$set: {

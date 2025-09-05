@@ -1,4 +1,4 @@
-const { useDB, useFunctions } = require("@zibot/zihooks");
+const { useDB, useFunctions } = require("@catbot/cathook");
 const { EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require("discord.js");
 const { PermissionsBitField, MessageFlags } = require("discord.js");
 

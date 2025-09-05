@@ -1,4 +1,4 @@
-const { useLogger } = require("@zibot/zihooks");
+const { useLogger } = require("@catbot/cathook");
 const simpleGit = require("simple-git");
 const git = simpleGit();
 

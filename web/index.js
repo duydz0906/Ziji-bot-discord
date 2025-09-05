@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const WebSocket = require("ws");
-const { useClient, useLogger, useConfig, useFunctions } = require("@zibot/zihooks");
+const { useClient, useLogger, useConfig, useFunctions } = require("@catbot/cathook");
 const { useMainPlayer } = require("discord-player");
 const http = require("http");
 const ngrok = require("ngrok");

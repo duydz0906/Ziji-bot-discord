@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const ZiUser = Schema({
+const CatUser = Schema({
 	userID: { type: String },
 	name: { type: String },
 	xp: { type: Number },
@@ -81,7 +81,7 @@ const ZiConfess = Schema({
 });
 
 module.exports = {
-	ZiUser: model("ZiUser", ZiUser),
+	CatUser: model("CatUser", CatUser),
 	ZiAutoresponder: model("ZiAutoresponder", ZiAutoresponder),
 	ZiWelcome: model("ZiWelcome", ZiWelcome),
 	ZiGuild: model("ZiGuild", ZiGuild),

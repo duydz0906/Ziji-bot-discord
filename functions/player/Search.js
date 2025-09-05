@@ -1,6 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, BaseInteraction, AttachmentBuilder } = require("discord.js");
 const { useMainPlayer, useQueue, GuildQueueEvent, Track } = require("discord-player");
-const { useDB, useConfig, useLogger } = require("@zibot/zihooks");
+const { useDB, useConfig, useLogger } = require("@catbot/cathook");
 const { ButtonStyle, StringSelectMenuOptionBuilder, StringSelectMenuBuilder } = require("discord.js");
 const { Worker } = require("worker_threads");
 const langdef = require("./../../lang/vi");
@@ -187,7 +187,7 @@ async function getPlayerConfig(options, interaction) {
 		const DataBase = useDB();
 		playerConfig.volume =
 			DataBase ?
-				((await DataBase.ZiUser.findOne({ userID: interaction.user.id }))?.volume ?? DefaultPlayerConfig.volume)
+				((await DataBase.CatUser.findOne({ userID: interaction.user.id }))?.volume ?? DefaultPlayerConfig.volume)
 			:	DefaultPlayerConfig.volume;
 		logger.debug(`Volume set from database or default: ${playerConfig.volume}`);
 	}

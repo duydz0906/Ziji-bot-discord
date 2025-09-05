@@ -2,8 +2,8 @@ const { Events, Client, ActivityType } = require("discord.js");
 const config = require("../../config");
 const deploy = require("../../startup/deploy");
 const mongoose = require("mongoose");
-const { useDB, useLogger } = require("@zibot/zihooks");
-const { Database, createModel } = require("@zibot/db");
+const { useDB, useLogger } = require("@catbot/cathook");
+const { Database, createModel } = require("@catbot/db");
 
 module.exports = {
 	name: Events.ClientReady,
@@ -49,7 +49,7 @@ module.exports = {
 			useLogger().error("Failed to connect to MongoDB!");
 			const db = new Database("./jsons/ziDB.json");
 			useDB({
-				ZiUser: createModel(db, "ZiUser"),
+				CatUser: createModel(db, "CatUser"),
 				ZiAutoresponder: createModel(db, "ZiAutoresponder"),
 				ZiWelcome: createModel(db, "ZiWelcome"),
 				ZiGuild: createModel(db, "ZiGuild"),

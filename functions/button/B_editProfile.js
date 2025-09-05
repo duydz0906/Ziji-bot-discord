@@ -1,4 +1,4 @@
-const { useDB } = require("@zibot/zihooks");
+const { useDB } = require("@catbot/cathook");
 const { ModalBuilder, ActionRowBuilder, TextInputBuilder, TextInputStyle } = require("discord.js");
 
 module.exports.data = {
@@ -17,7 +17,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 	const db = useDB();
 	if (!db) return interaction.reply({ content: lang?.until?.noDB, ephemeral: true }).catch(() => {});
 
-	let rankkk = await db?.ZiUser?.findOne({ userID: interaction?.user.id }).catch((e) => {});
+	let rankkk = await db?.CatUser?.findOne({ userID: interaction?.user.id }).catch((e) => {});
 	if (rankkk.level < 2) return interaction.reply({ content: `${lang?.RankSystem.canLv2}`, ephemeral: true }).catch((e) => {});
 
 	const modal = new ModalBuilder()

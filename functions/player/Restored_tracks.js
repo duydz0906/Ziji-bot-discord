@@ -1,6 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, BaseInteraction } = require("discord.js");
 const { useMainPlayer, useQueue, decode, deserialize } = require("discord-player");
-const { useDB, useConfig } = require("@zibot/zihooks");
+const { useDB, useConfig } = require("@catbot/cathook");
 const langdef = require("./../../lang/vi");
 const player = useMainPlayer();
 const config = useConfig();
@@ -75,7 +75,7 @@ module.exports.execute = async (interaction, decryptedData, lang, options = {}) 
 			const DataBase = useDB();
 			playerConfig.volume =
 				DataBase ?
-					((await DataBase.ZiUser.findOne({ userID: user.id }))?.volume ?? DefaultPlayerConfig.volume)
+					((await DataBase.CatUser.findOne({ userID: user.id }))?.volume ?? DefaultPlayerConfig.volume)
 				:	DefaultPlayerConfig.volume;
 		}
 

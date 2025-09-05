@@ -1,7 +1,7 @@
 const { Events, EmbedBuilder } = require("discord.js");
 const { useQueue } = require("discord-player");
-const config = require("@zibot/zihooks").useConfig();
-const { useFunctions, useDB } = require("@zibot/zihooks");
+const config = require("@catbot/cathook").useConfig();
+const { useFunctions, useDB } = require("@catbot/cathook");
 
 module.exports = {
 	name: Events.VoiceStateUpdate,

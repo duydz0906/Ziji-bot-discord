@@ -1,5 +1,5 @@
 const { useMainPlayer, useQueue, QueryType } = require("discord-player");
-const { useFunctions, useConfig } = require("@zibot/zihooks");
+const { useFunctions, useConfig } = require("@catbot/cathook");
 const player = useMainPlayer();
 const config = useConfig();
 

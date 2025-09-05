@@ -1,5 +1,5 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, ComponentType } = require("discord.js");
-const { useFunctions } = require("@zibot/zihooks");
+const { useFunctions } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "blackjack",
@@ -23,7 +23,7 @@ module.exports.data = {
  * @param { import("../../lang/vi.js") } command.lang - language
  */
 module.exports.execute = async ({ interaction, lang }) => {
-	const ZiRank = useFunctions().get("ZiRank");
+	const CyberRank = useFunctions().get("CyberRank");
 	const opponent = interaction.options.getUser("opponent");
 	if (opponent && (opponent.bot || opponent.id === interaction.user.id))
 		return interaction.reply({ content: "Bạn không thể thách đấu người này.", ephemeral: true });
@@ -203,7 +203,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 					: result === "win" ? 100
 					: result === "lose" ? -100
 					: 0;
-				return ZiRank.execute({ user, XpADD: 0, CoinADD });
+				return CyberRank.execute({ user, XpADD: 0, CoinADD });
 			}),
 		);
 		await endGame(resultFields);

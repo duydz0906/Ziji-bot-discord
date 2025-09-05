@@ -1,5 +1,5 @@
 const { PermissionsBitField, EmbedBuilder } = require("discord.js");
-const { useDB, useWelcome, useConfig, useFunctions } = require("@zibot/zihooks");
+const { useDB, useWelcome, useConfig, useFunctions } = require("@catbot/cathook");
 const config = useConfig();
 const parseVar = useFunctions().get("getVariable");
 module.exports.data = {

@@ -1,4 +1,4 @@
-const { useDB } = require("@zibot/zihooks");
+const { useDB } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "B_TempVoice_Lock",

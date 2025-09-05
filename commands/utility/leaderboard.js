@@ -1,5 +1,5 @@
 const { AttachmentBuilder } = require("discord.js");
-const { useDB, useConfig } = require("@zibot/zihooks");
+const { useDB, useConfig } = require("@catbot/cathook");
 const { Worker } = require("worker_threads");
 
 async function buildImageInWorker(workerData) {
@@ -54,7 +54,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 	const db = useDB();
 	if (!db) return interaction.editReply({ content: lang?.until?.noDB, ephemeral: true }).catch(() => {});
 
-	const UserI = await db?.ZiUser?.find();
+	const UserI = await db?.CatUser?.find();
 
 	const usersort = UserI.sort((a, b) => {
 		if (b.level !== a.level) {

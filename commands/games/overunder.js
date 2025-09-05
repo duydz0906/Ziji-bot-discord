@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require("discord.js");
-const { useFunctions, useDB } = require("@zibot/zihooks");
+const { useFunctions, useDB } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "overunder",
@@ -33,7 +33,7 @@ module.exports.data = {
  * @param { import("../../lang/vi.js") } command.lang - language
  */
 module.exports.execute = async ({ interaction, lang }) => {
-	const ZiRank = useFunctions().get("ZiRank");
+	const CyberRank = useFunctions().get("CyberRank");
 	const db = useDB();
 	const choice = interaction.options.getString("choice");
 	const betInput = interaction.options.getString("bet");
@@ -41,7 +41,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 	let bet = 100;
 	if (betInput) {
 		if (betInput.toLowerCase() === "all") {
-			bet = db ? (await db.ZiUser.findOne({ userID: interaction.user.id }))?.coin || 0 : 0;
+			bet = db ? (await db.CatUser.findOne({ userID: interaction.user.id }))?.coin || 0 : 0;
 		} else {
 			const parsed = parseInt(betInput, 10);
 			if (isNaN(parsed) || parsed <= 0) {
@@ -80,5 +80,5 @@ module.exports.execute = async ({ interaction, lang }) => {
 		isTie ? 0
 		: win ? bet * 2
 		: -bet;
-	await ZiRank.execute({ user: interaction.user, XpADD: 0, CoinADD });
+	await CyberRank.execute({ user: interaction.user, XpADD: 0, CoinADD });
 };

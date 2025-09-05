@@ -1,4 +1,4 @@
-const { useFunctions, useDB } = require("@zibot/zihooks");
+const { useFunctions, useDB } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "language",
@@ -34,7 +34,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 		return interaction.editReply({
 			content: lang?.until?.noDB || "Database hiện không được bật, xin vui lòng liên hệ dev bot",
 		});
-	await DataBase.ZiUser.updateOne(
+	await DataBase.CatUser.updateOne(
 		{ userID: interaction.user.id },
 		{
 			$set: {
@@ -43,7 +43,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 		},
 		{ upsert: true },
 	);
-	const langfunc = useFunctions().get("ZiRank");
+	const langfunc = useFunctions().get("CyberRank");
 	const lang2 = await langfunc.execute({ user: interaction.user, XpADD: 0 });
 	interaction.editReply({ content: `${lang2.until.langChange} ${lang2.until.name}` });
 };
