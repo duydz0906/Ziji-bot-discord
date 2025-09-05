@@ -1,4 +1,6 @@
 const { Events, Message } = require("discord.js");
+const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerStatus } = require("@discordjs/voice");
+const path = require("path");
 const { useResponder, useConfig, useFunctions, useCommands, useLogger, modinteraction, useAI } = require("@catbot/cathook");
 const config = useConfig();
 const { useQueue } = require("discord-player");
@@ -23,6 +25,26 @@ module.exports.execute = async (message) => {
 	// Get the user's language preference
 	const langfunc = Functions.get("CyberRank");
 	const lang = await langfunc.execute({ user: message.author, XpADD: 0 });
+
+	if (message.content.trim().toLowerCase() === "duysuy") {
+		const voiceChannel = message.member?.voice?.channel;
+		if (!voiceChannel) {
+			await message.reply("Duy chỉ hơi suy tí thôi rồi  mọi chuyện sẽ ổn, chỉ có vết thương lòng sẽ mãi ở đó theo thời gian 💔");
+			return;
+		}
+		const connection = joinVoiceChannel({
+			channelId: voiceChannel.id,
+			guildId: voiceChannel.guild.id,
+			adapterCreator: voiceChannel.guild.voiceAdapterCreator,
+			selfDeaf: false,
+		});
+		const player = createAudioPlayer();
+		const resource = createAudioResource(path.join(process.cwd(), "audio", "duysuy.mp3"));
+		player.play(resource);
+		connection.subscribe(player);
+		player.on(AudioPlayerStatus.Idle, () => connection.destroy());
+		return;
+	}
 	//tts
 	if (message.channel.isThread() && message.channel.name.startsWith(`${message?.client?.user?.username} TTS |`)) {
 		return await reqTTS(message, lang);
