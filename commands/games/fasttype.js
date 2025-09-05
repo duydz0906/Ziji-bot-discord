@@ -14,7 +14,7 @@ module.exports.data = {
  * @param { import('../../lang/vi.js') } command.lang - language
  */
 module.exports.execute = async ({ interaction, lang }) => {
-	const ZiRank = useFunctions().get("ZiRank");
+	const CyberRank = useFunctions().get("CyberRank");
 	const sent = sentence();
 	const Game = new FastType({
 		message: interaction,
@@ -33,6 +33,6 @@ module.exports.execute = async ({ interaction, lang }) => {
 	Game.startGame();
 	Game.on("gameOver", async (result) => {
 		const CoinADD = result.result === "win" ? 100 : -100;
-		await ZiRank.execute({ user: interaction.user, XpADD: 0, CoinADD });
+		await CyberRank.execute({ user: interaction.user, XpADD: 0, CoinADD });
 	});
 };
