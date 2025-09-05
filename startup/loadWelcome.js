@@ -1,4 +1,4 @@
-const { useDB, useWelcome, useLogger } = require("@zibot/zihooks");
+const { useDB, useWelcome, useLogger } = require("@catbot/cathook");
 
 module.exports = async () => {
 	try {

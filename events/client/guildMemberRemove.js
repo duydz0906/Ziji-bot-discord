@@ -1,4 +1,4 @@
-const { useConfig, useWelcome, useFunctions } = require("@zibot/zihooks");
+const { useConfig, useWelcome, useFunctions } = require("@catbot/cathook");
 const { Events, GuildMember, AttachmentBuilder } = require("discord.js");
 const config = useConfig();
 const { Worker } = require("worker_threads");

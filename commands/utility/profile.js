@@ -1,6 +1,6 @@
 const { ButtonBuilder, ActionRowBuilder, ButtonStyle, AttachmentBuilder } = require("discord.js");
 const { Font, RankCardBuilder } = require("canvacord");
-const { useDB, useConfig } = require("@zibot/zihooks");
+const { useDB, useConfig } = require("@catbot/cathook");
 const { Worker } = require("worker_threads");
 
 async function buildImageInWorker(workerData) {
@@ -77,7 +77,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 	const db = useDB();
 	if (!db) return interaction.editReply({ content: lang?.until?.noDB, ephemeral: true }).catch(() => {});
 
-	const [userDB, UserI] = await Promise.all([db.ZiUser.findOne({ userID: member.id }), db.ZiUser.find()]);
+	const [userDB, UserI] = await Promise.all([db.CatUser.findOne({ userID: member.id }), db.CatUser.find()]);
 
 	const usersort = UserI.sort((a, b) => {
 		if (b.lvl !== a.lvl) {

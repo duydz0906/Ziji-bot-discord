@@ -1,5 +1,5 @@
 const { useMainPlayer, useQueue, Track } = require("discord-player");
-const { useFunctions, useAI } = require("@zibot/zihooks");
+const { useFunctions, useAI } = require("@catbot/cathook");
 const Functions = useFunctions();
 
 async function Update_Player(queue) {

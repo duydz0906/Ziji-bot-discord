@@ -1,7 +1,7 @@
 const { useMainPlayer } = require("discord-player");
 const player = useMainPlayer();
-const { useZiVoiceExtractor } = require("@zibot/ziextractor");
-const { useFunctions, useAI } = require("@zibot/zihooks");
+const { useZiVoiceExtractor } = require("@catbot/ziextractor");
+const { useFunctions, useAI } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "runVoiceAI",

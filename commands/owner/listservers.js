@@ -1,4 +1,4 @@
-const config = require("@zibot/zihooks").useConfig();
+const config = require("@catbot/cathook").useConfig();
 
 module.exports.data = {
 	name: "listservers",

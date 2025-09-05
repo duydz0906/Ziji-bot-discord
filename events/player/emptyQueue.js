@@ -1,5 +1,5 @@
 const { GuildQueueEvent } = require("discord-player");
-const { useFunctions } = require("@zibot/zihooks");
+const { useFunctions } = require("@catbot/cathook");
 
 module.exports = {
 	name: GuildQueueEvent.EmptyQueue,

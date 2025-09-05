@@ -1,6 +1,6 @@
 const { useMainPlayer, QueryType, GuildQueue } = require("discord-player");
-const { useFunctions } = require("@zibot/zihooks");
-const config = require("@zibot/zihooks").useConfig();
+const { useFunctions } = require("@catbot/cathook");
+const config = require("@catbot/cathook").useConfig();
 const player = useMainPlayer();
 const {
 	Client,

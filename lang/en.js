@@ -1,4 +1,4 @@
-const config = require("@zibot/zihooks").useConfig();
+const config = require("@catbot/cathook").useConfig();
 module.exports = {
 	name: "en",
 	local_names: "en_US",

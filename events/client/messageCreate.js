@@ -1,5 +1,5 @@
 const { Events, Message } = require("discord.js");
-const { useResponder, useConfig, useFunctions, useCommands, useLogger, modinteraction, useAI } = require("@zibot/zihooks");
+const { useResponder, useConfig, useFunctions, useCommands, useLogger, modinteraction, useAI } = require("@catbot/cathook");
 const config = useConfig();
 const { useQueue } = require("discord-player");
 const mentionRegex = /@(everyone|here|ping)/;

@@ -1,5 +1,5 @@
 const { useMainPlayer, useQueue } = require("discord-player");
-const { useFunctions } = require("@zibot/zihooks");
+const { useFunctions } = require("@catbot/cathook");
 const player = useMainPlayer();
 
 module.exports.data = {

@@ -1,4 +1,4 @@
-const { useDB, useFunctions } = require("@zibot/zihooks");
+const { useDB, useFunctions } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "M_TempVoice_Rename",

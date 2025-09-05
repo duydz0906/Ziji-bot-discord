@@ -1,4 +1,4 @@
-const { useDB, useConfig } = require("@zibot/zihooks");
+const { useDB, useConfig } = require("@catbot/cathook");
 const config = useConfig();
 
 module.exports.data = {
@@ -16,7 +16,7 @@ module.exports.execute = async ({ user, XpADD = 1, CoinADD = 0 }) => {
 	const DataBase = useDB();
 	if (DataBase && user) {
 		// Destructure userDB to extract values with default assignments
-		const { xp = 1, level = 1, coin = 1, lang, color } = (await DataBase.ZiUser.findOne({ userID: user.id })) || {};
+		const { xp = 1, level = 1, coin = 1, lang, color } = (await DataBase.CatUser.findOne({ userID: user.id })) || {};
 
 		// Calculate new xp
 		let newXp = xp + XpADD;
@@ -32,7 +32,7 @@ module.exports.execute = async ({ user, XpADD = 1, CoinADD = 0 }) => {
 		}
 
 		// Update the user in the database
-		await DataBase.ZiUser.updateOne(
+		await DataBase.CatUser.updateOne(
 			{ userID: user.id },
 			{
 				$set: {

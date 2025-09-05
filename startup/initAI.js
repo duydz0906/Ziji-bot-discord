@@ -1,10 +1,10 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const { useDB, useAI, useLogger, useClient, useConfig } = require("@zibot/zihooks");
+const { useDB, useAI, useLogger, useClient, useConfig } = require("@catbot/cathook");
 const config = useConfig();
 const client = useClient();
 
 const promptBuilder = async ({ content, user, lang, DataBase }) => {
-	const { promptHistory, CurrentAI, CurrentUser } = (await DataBase.ZiUser.findOne({ userID: user?.id })) || {};
+	const { promptHistory, CurrentAI, CurrentUser } = (await DataBase.CatUser.findOne({ userID: user?.id })) || {};
 
 	const lowerContent = content?.toLowerCase()?.trim();
 	const language = lang?.local_names || "vi_VN";
@@ -52,7 +52,7 @@ module.exports = async () => {
 				if (!text) return "Lỗi khi gọi AI";
 				if (!user) return text;
 
-				await DataBase.ZiUser.updateOne(
+				await DataBase.CatUser.updateOne(
 					{ userID: user?.id },
 					{
 						$set: {

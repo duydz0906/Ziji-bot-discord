@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require("discord.js");
-const { useFunctions, useDB } = require("@zibot/zihooks");
+const { useFunctions, useDB } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "overunder",
@@ -41,7 +41,7 @@ module.exports.execute = async ({ interaction, lang }) => {
 	let bet = 100;
 	if (betInput) {
 		if (betInput.toLowerCase() === "all") {
-			bet = db ? (await db.ZiUser.findOne({ userID: interaction.user.id }))?.coin || 0 : 0;
+			bet = db ? (await db.CatUser.findOne({ userID: interaction.user.id }))?.coin || 0 : 0;
 		} else {
 			const parsed = parseInt(betInput, 10);
 			if (isNaN(parsed) || parsed <= 0) {
@@ -50,16 +50,8 @@ module.exports.execute = async ({ interaction, lang }) => {
 			bet = parsed;
 		}
 	}
-	const faces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
-	const diceMsg = await interaction.reply({ content: `${faces[0]} ${faces[0]}`, fetchReply: true });
-	let dice1;
-	let dice2;
-	for (let i = 0; i < 3; i++) {
-		await new Promise((r) => setTimeout(r, 1000));
-		dice1 = Math.floor(Math.random() * 6) + 1;
-		dice2 = Math.floor(Math.random() * 6) + 1;
-		await diceMsg.edit({ content: `${faces[dice1 - 1]} ${faces[dice2 - 1]}` });
-	}
+	const dice1 = Math.floor(Math.random() * 6) + 1;
+	const dice2 = Math.floor(Math.random() * 6) + 1;
 	const total = dice1 + dice2;
 	const isOver = total >= 8;
 	const isUnder = total <= 6;
@@ -83,15 +75,10 @@ module.exports.execute = async ({ interaction, lang }) => {
 			`${words.chosen ?? "Bạn chọn"}: **${displayChoice}**\n${words.result ?? "Kết quả"}: **${total} (${resultText})**\n${words.bet ?? "Tiền cược"}: **${bet}**\n${message}`,
 		);
 
-	await interaction.followUp({ embeds: [embed] });
+	await interaction.reply({ embeds: [embed] });
 	const CoinADD =
 		isTie ? 0
 		: win ? bet * 2
 		: -bet;
-<<<<<<< Updated upstream
 	await CyberRank.execute({ user: interaction.user, XpADD: 0, CoinADD });
 };
-=======
-	await ZiRank.execute({ user: interaction.user, XpADD: 0, CoinADD });
-};
->>>>>>> Stashed changes

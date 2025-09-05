@@ -13,7 +13,7 @@ const {
 	useResponder,
 	useWelcome,
 	useLogger,
-} = require("@zibot/zihooks");
+} = require("@catbot/cathook");
 const path = require("node:path");
 const winston = require("winston");
 const util = require("util");
@@ -23,7 +23,7 @@ const { GiveawaysManager } = require("discord-giveaways");
 const { YoutubeiExtractor } = require("discord-player-youtubei");
 const { loadFiles, loadEvents, createfile } = require("./startup/loader.js");
 const { Client, Collection, GatewayIntentBits, Partials } = require("discord.js");
-const { ZiExtractor, useZiVoiceExtractor, TextToSpeech } = require("@zibot/ziextractor");
+const { ZiExtractor, useZiVoiceExtractor, TextToSpeech } = require("@catbot/ziextractor");
 const { DefaultExtractors } = require("@discord-player/extractor");
 const readline = require("readline");
 

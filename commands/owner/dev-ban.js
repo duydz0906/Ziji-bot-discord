@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { ApplicationCommandOptionType } = require("discord.js");
-const config = require("@zibot/zihooks").useConfig();
+const config = require("@catbot/cathook").useConfig();
 module.exports.data = {
 	name: "dev-ban",
 	description: "Cấm người dùng sử dụng bot",

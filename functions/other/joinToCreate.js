@@ -1,4 +1,4 @@
-const { useFunctions, useConfig } = require("@zibot/zihooks");
+const { useFunctions, useConfig } = require("@catbot/cathook");
 const {
 	ButtonBuilder,
 	ButtonStyle,

@@ -1,4 +1,4 @@
-const { useClient, useLogger } = require("@zibot/zihooks");
+const { useClient, useLogger } = require("@catbot/cathook");
 const client = useClient();
 
 module.exports = {

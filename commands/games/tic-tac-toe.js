@@ -1,5 +1,5 @@
 const { TicTacToe } = require("discord-gamecord");
-const { useFunctions } = require("@zibot/zihooks");
+const { useFunctions } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "tic-tac-toe",

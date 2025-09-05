@@ -1,5 +1,5 @@
 const { Events, CommandInteraction, PermissionsBitField, MessageFlags } = require("discord.js");
-const { useCooldowns, useCommands, useFunctions, useConfig, useLogger } = require("@zibot/zihooks");
+const { useCooldowns, useCommands, useFunctions, useConfig, useLogger } = require("@catbot/cathook");
 const config = useConfig();
 const fs = require("fs");
 const path = require("path");

@@ -1,6 +1,6 @@
 const { TwoZeroFourEight } = require("discord-gamecord");
 const icons = require("../../utility/icon");
-const { useFunctions } = require("@zibot/zihooks");
+const { useFunctions } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "2048",

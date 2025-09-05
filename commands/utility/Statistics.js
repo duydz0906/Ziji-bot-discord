@@ -3,7 +3,7 @@ const os = require("os");
 const { version: DjsVersion } = require("discord.js");
 const { version: DplVersion } = require("discord-player");
 const { execSync } = require("child_process");
-const { useCommands, useConfig } = require("@zibot/zihooks");
+const { useCommands, useConfig } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "statistics",

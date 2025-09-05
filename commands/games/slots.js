@@ -1,5 +1,5 @@
 const { Slots } = require("discord-gamecord");
-const { useFunctions } = require("@zibot/zihooks");
+const { useFunctions } = require("@catbot/cathook");
 
 module.exports.data = {
 	name: "slots",

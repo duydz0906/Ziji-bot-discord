@@ -1,4 +1,4 @@
-const { useConfig } = require("@zibot/zihooks");
+const { useConfig } = require("@catbot/cathook");
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const config = useConfig();
 module.exports.data = {
