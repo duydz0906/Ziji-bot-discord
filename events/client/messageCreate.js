@@ -30,7 +30,11 @@ module.exports.execute = async (message) => {
 		const voiceChannel = message.member?.voice?.channel;
 		if (!voiceChannel) {
 			await message.reply("Duy chỉ hơi suy tí thôi rồi  mọi chuyện sẽ ổn, chỉ có vết thương lòng sẽ mãi ở đó theo thời gian 💔");
-			return;
+	if (message.content.trim().toLowerCase() === "dysuy") {
+		const voiceChannel = message.member?.voice?.channel;
+		if (!voiceChannel) {
+			await message.reply("Duy chỉ hơi suy thôi rồi từ từ mọi thứ sẽ qua, chỉ có vết thương lòng còn ở đó");
+      return;
 		}
 		const connection = joinVoiceChannel({
 			channelId: voiceChannel.id,
