@@ -6,6 +6,7 @@ const CatUser = Schema({
 	xp: { type: Number },
 	level: { type: Number, default: 1 },
 	coin: { type: Number, default: 1 },
+	debtCommandCount: { type: Number, default: 0 },
 	lang: { type: String },
 	volume: { type: Number, default: 100 },
 	color: { type: String, default: "Random" },

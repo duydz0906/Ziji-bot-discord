@@ -1,5 +1,5 @@
 const { Events, CommandInteraction, PermissionsBitField, MessageFlags } = require("discord.js");
-const { useCooldowns, useCommands, useFunctions, useConfig, useLogger } = require("@catbot/cathook");
+const { useCooldowns, useCommands, useFunctions, useConfig, useLogger, useDB } = require("@catbot/cathook");
 const config = useConfig();
 const fs = require("fs");
 const path = require("path");
@@ -114,6 +114,36 @@ module.exports.execute = async (interaction) => {
 
 			const status = await checkStatus(interaction, client, lang);
 			if (status) return;
+
+			const DataBase = useDB();
+			if (DataBase && interaction.isChatInputCommand()) {
+				const gameCommands = new Set(["2048", "blackjack", "coinflip", "fasttype", "overunder", "slots", "snake", "tic-tac-toe"]);
+				const userData = await DataBase.CatUser.findOne({ userID: user.id });
+				const coin = userData?.coin ?? 0;
+				let debtCount = userData?.debtCommandCount ?? 0;
+				const isGame = gameCommands.has(interaction.commandName);
+				if (coin <= -100009) {
+					if (isGame) {
+						if (debtCount < 50) {
+							const remaining = 50 - debtCount;
+							await interaction.reply({
+								content: `Bạn đang nợ 100009 coin. Hãy sử dụng các lệnh khác ${remaining} lần để xoá nợ trước khi chơi game.`,
+								ephemeral: true,
+							});
+							return;
+						} else {
+							await DataBase.CatUser.updateOne({ userID: user.id }, { $set: { coin: 0, debtCommandCount: 0 } });
+						}
+					} else {
+						debtCount += 1;
+						if (debtCount >= 50) {
+							await DataBase.CatUser.updateOne({ userID: user.id }, { $set: { coin: 0, debtCommandCount: 0 } }, { upsert: true });
+						} else {
+							await DataBase.CatUser.updateOne({ userID: user.id }, { $set: { debtCommandCount: debtCount } }, { upsert: true });
+						}
+					}
+				}
+			}
 
 			await command.execute({ interaction, lang });
 		}
