@@ -17,7 +17,7 @@ module.exports.data = {
 module.exports.execute = async ({ interaction }) => {
 	const voiceChannel = interaction.member?.voice?.channel;
 	if (!voiceChannel) {
-		await interaction.reply("Duy chỉ hơi suy thôi rồi từ từ mọi thứ sẽ qua, chỉ có vết thương lòng còn ở đó");
+		await interaction.reply("Duy chỉ hơi suy thôi rồi từ từ mọi thứ sẽ qua, chỉ có vết thương lòng còn ở đó 💔");
 		return;
 	}
 	await interaction.deferReply({ ephemeral: true }).catch(() => {});
