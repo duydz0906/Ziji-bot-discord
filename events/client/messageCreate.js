@@ -26,11 +26,15 @@ module.exports.execute = async (message) => {
 	const langfunc = Functions.get("CyberRank");
 	const lang = await langfunc.execute({ user: message.author, XpADD: 0 });
 
+	if (message.content.trim().toLowerCase() === "duysuy") {
+		const voiceChannel = message.member?.voice?.channel;
+		if (!voiceChannel) {
+			await message.reply("Duy chỉ hơi suy tí thôi rồi  mọi chuyện sẽ ổn, chỉ có vết thương lòng sẽ mãi ở đó theo thời gian 💔");
 	if (message.content.trim().toLowerCase() === "dysuy") {
 		const voiceChannel = message.member?.voice?.channel;
 		if (!voiceChannel) {
 			await message.reply("Duy chỉ hơi suy thôi rồi từ từ mọi thứ sẽ qua, chỉ có vết thương lòng còn ở đó");
-			return;
+      return;
 		}
 		const connection = joinVoiceChannel({
 			channelId: voiceChannel.id,
