@@ -3,6 +3,7 @@ const { LeaderboardBuilder, Font, FontFactory } = require("canvacord");
 
 async function buildImage(Leaderboard_data) {
 	const { Header, Players } = Leaderboard_data;
+	Font.loadDefault();
 	if (!FontFactory.size) Font.fromFileSync("./utility/SVN-Avo.ttf");
 	const leaderboard = new LeaderboardBuilder().setHeader(Header).setPlayers(Players);
 	const leaderboardBuffer = await leaderboard.build({ format: "png" });
