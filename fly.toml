@@ -1,0 +1,17 @@
+app = 'daniel-bot-discord'
+primary_region = 'sin'
+
+[build]
+
+[http_service]
+  internal_port = 2005
+  force_https = true
+  auto_stop_machines = 'off'   # không tự stop
+  auto_start_machines = false  # không tự start thêm machine
+  min_machines_running = 1     # luôn giữ đúng 1 machine chạy
+  processes = ['app']
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
