@@ -100,7 +100,7 @@ module.exports.execute = async (interaction) => {
 	}
 
 	// Get the user's language preference
-	const langfunc = Functions.get("ZiRank");
+	const langfunc = Functions.get("CyberRank");
 	const lang = await langfunc.execute({ user, XpADD: interaction.isAutocomplete() ? 0 : 1 });
 
 	// Try to execute the command and handle errors

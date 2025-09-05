@@ -2,7 +2,7 @@ const { useDB, useConfig } = require("@zibot/zihooks");
 const config = useConfig();
 
 module.exports.data = {
-	name: "ZiRank",
+	name: "CyberRank",
 	type: "ranksys",
 };
 

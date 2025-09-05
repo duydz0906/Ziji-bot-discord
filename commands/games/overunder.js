@@ -33,7 +33,7 @@ module.exports.data = {
  * @param { import("../../lang/vi.js") } command.lang - language
  */
 module.exports.execute = async ({ interaction, lang }) => {
-	const ZiRank = useFunctions().get("ZiRank");
+	const CyberRank = useFunctions().get("CyberRank");
 	const db = useDB();
 	const choice = interaction.options.getString("choice");
 	const betInput = interaction.options.getString("bet");
@@ -80,5 +80,5 @@ module.exports.execute = async ({ interaction, lang }) => {
 		isTie ? 0
 		: win ? bet * 2
 		: -bet;
-	await ZiRank.execute({ user: interaction.user, XpADD: 0, CoinADD });
+	await CyberRank.execute({ user: interaction.user, XpADD: 0, CoinADD });
 };

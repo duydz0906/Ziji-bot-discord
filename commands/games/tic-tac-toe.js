@@ -23,7 +23,7 @@ module.exports.data = {
  * @param { import('../../lang/vi.js') } command.lang - language
  */
 module.exports.execute = async ({ interaction, lang }) => {
-	const ZiRank = useFunctions().get("ZiRank");
+	const CyberRank = useFunctions().get("CyberRank");
 	const Game = new TicTacToe({
 		message: interaction,
 		isSlashGame: true,
@@ -61,11 +61,11 @@ module.exports.execute = async ({ interaction, lang }) => {
 			const winner = players.find((u) => u.id === result.winner);
 			const loser = players.find((u) => u.id !== result.winner);
 			await Promise.all([
-				ZiRank.execute({ user: winner, XpADD: 0, CoinADD: 100 }),
-				ZiRank.execute({ user: loser, XpADD: 0, CoinADD: -100 }),
+				CyberRank.execute({ user: winner, XpADD: 0, CoinADD: 100 }),
+				CyberRank.execute({ user: loser, XpADD: 0, CoinADD: -100 }),
 			]);
 		} else if (result.result === "tie") {
-			await Promise.all(players.map((u) => ZiRank.execute({ user: u, XpADD: 0, CoinADD: 0 })));
+			await Promise.all(players.map((u) => CyberRank.execute({ user: u, XpADD: 0, CoinADD: 0 })));
 		}
 	});
 };
