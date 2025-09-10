@@ -36,14 +36,24 @@ module.exports.execute = async ({ interaction, lang }) => {
 				`# ${lang.Help.GuildCommands}:\n\n` +
 					guildCommands
 						.map((cmd) => {
-							if (cmd.options?.at(0).type == 1) {
-								let optionss = "";
-								for (const option of cmd.options) {
-									if (option.type == 1) {
-										optionss += `</${cmd.name} ${option.name}:${cmd.id}>: ${option.description}\n`;
+							if (cmd.options?.length) {
+								if (cmd.options.some((opt) => opt.type == 1)) {
+									let optionss = "";
+									for (const option of cmd.options) {
+										if (option.type == 1) {
+											optionss += `</${cmd.name} ${option.name}:${cmd.id}>: ${option.description}\n`;
+										}
 									}
+									return optionss;
 								}
-								return optionss;
+								const optionsText = cmd.options
+									.filter((opt) => opt.type != 1)
+									.map((opt) => {
+										const choices = opt.choices?.map((c) => c.name).join(" | ");
+										return ` - ${opt.name}${opt.required ? "*" : ""}: ${opt.description}${choices ? ` (${choices})` : ""}`;
+									})
+									.join("\n");
+								return `</${cmd.name}:${cmd.id}>: ${cmd.description}\n${optionsText}\n`;
 							}
 							return `</${cmd.name}:${cmd.id}>: ${cmd.description}\n`;
 						})
