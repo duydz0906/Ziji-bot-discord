@@ -15,6 +15,8 @@ module.exports.data = {
 				{ name: "reply muon", value: "replymuon" },
 				{ name: "tử tế đến đau lòng", value: "tutedendau" },
 			],
+
+			choices: [{ name: "reply muon", value: "replymuon" }],
 		},
 		{
 			name: "user",
@@ -64,6 +66,13 @@ module.exports.execute = async ({ interaction }) => {
 
 	const voiceChannel = interaction.member?.voice?.channel;
 	if (!voiceChannel) {
+
+	if (option !== "replymuon") return;
+
+	const voiceChannel = interaction.member?.voice?.channel;
+	if (!voiceChannel) {
+		let message =
+			"Tại sao bạn lại tệ đến mức như vậy?? Tôi coi bạn quan trọng luôn rep bạn sớm mà bạn lại để tôi chờ đợi vậy sao?";
 		if (targetUser) message += ` ${targetUser}`;
 		await interaction.reply(message);
 		return;
@@ -77,7 +86,8 @@ module.exports.execute = async ({ interaction }) => {
 		selfDeaf: false,
 	});
 	const player = createAudioPlayer();
-	const resource = createAudioResource(path.join(process.cwd(), "audio", file));
+	const resource = createAudioResource(path.join(process.cwd(), "audio", "duysuy2.mp3"));
+	const resource = createAudioResource(path.join(process.cwd(), "audio", "duysuy.mp3"));
 	player.play(resource);
 	connection.subscribe(player);
 	player.on(AudioPlayerStatus.Idle, () => connection.destroy());
