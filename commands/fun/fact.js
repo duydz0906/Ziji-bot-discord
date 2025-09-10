@@ -11,6 +11,11 @@ module.exports.data = {
 			description: "Chọn hành động",
 			type: 3,
 			required: true,
+			choices: [
+				{ name: "reply muon", value: "replymuon" },
+				{ name: "tử tế đến đau lòng", value: "tutedendau" },
+			],
+
 			choices: [{ name: "reply muon", value: "replymuon" }],
 		},
 		{
@@ -41,6 +46,27 @@ module.exports.data = {
 module.exports.execute = async ({ interaction }) => {
 	const option = interaction.options.getString("option");
 	const targetUser = interaction.options.getUser("user");
+
+	let message;
+	let file;
+
+	switch (option) {
+		case "replymuon":
+			message = "Tại sao bạn lại tệ đến mức như vậy?? Tôi coi bạn quan trọng luôn rep bạn sớm mà bạn lại để tôi chờ đợi vậy sao?";
+			file = "duysuy.mp3";
+			break;
+		case "tutedendau":
+			message =
+				"chia tay rồi sao còn nhớ đến người ta? Bạn thương người ta hết lòng nhưng hãy coi người ta đã làm được gì cho mình.";
+			file = "duysuy2.mp3";
+			break;
+		default:
+			return;
+	}
+
+	const voiceChannel = interaction.member?.voice?.channel;
+	if (!voiceChannel) {
+
 	if (option !== "replymuon") return;
 
 	const voiceChannel = interaction.member?.voice?.channel;
@@ -60,6 +86,7 @@ module.exports.execute = async ({ interaction }) => {
 		selfDeaf: false,
 	});
 	const player = createAudioPlayer();
+	const resource = createAudioResource(path.join(process.cwd(), "audio", "duysuy2.mp3"));
 	const resource = createAudioResource(path.join(process.cwd(), "audio", "duysuy.mp3"));
 	player.play(resource);
 	connection.subscribe(player);
