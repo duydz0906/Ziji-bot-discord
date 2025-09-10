@@ -2,10 +2,34 @@ const { joinVoiceChannel, createAudioPlayer, createAudioResource, AudioPlayerSta
 const path = require("path");
 
 module.exports.data = {
-	name: "duysuy",
-	description: "Phát audio duysuy hoặc gửi lời động viên",
+	name: "fact",
+	description: "Phát audio duysuy hoặc gửi lời nhắn của bạn.",
 	type: 1,
-	options: [],
+	options: [
+		{
+			name: "option",
+			description: "Chọn hành động",
+			type: 3,
+			required: true,
+			choices: [{ name: "reply muon", value: "replymuon" }],
+		},
+		{
+			name: "user",
+			description: "Người sẽ được tag trong tin nhắn",
+			type: 6,
+			required: false,
+		},
+		// {
+		//     name: "another_option",
+		//     description: "Ví dụ option khác",
+		//     type: 3,
+		// },
+		// {
+		//     name: "more_option",
+		//     description: "Một option dự phòng",
+		//     type: 3,
+		// },
+	],
 	integration_types: [0],
 	contexts: [0],
 };
@@ -15,11 +39,19 @@ module.exports.data = {
  * @param { import("discord.js").CommandInteraction } command.interaction
  */
 module.exports.execute = async ({ interaction }) => {
+	const option = interaction.options.getString("option");
+	const targetUser = interaction.options.getUser("user");
+	if (option !== "replymuon") return;
+
 	const voiceChannel = interaction.member?.voice?.channel;
 	if (!voiceChannel) {
-		await interaction.reply("Duy chỉ hơi suy thôi rồi từ từ mọi thứ sẽ qua, chỉ có vết thương lòng còn ở đó 💔");
+		let message =
+			"Tại sao bạn lại tệ đến mức như vậy?? Tôi coi bạn quan trọng luôn rep bạn sớm mà bạn lại để tôi chờ đợi vậy sao?";
+		if (targetUser) message += ` ${targetUser}`;
+		await interaction.reply(message);
 		return;
 	}
+
 	await interaction.deferReply({ ephemeral: true }).catch(() => {});
 	const connection = joinVoiceChannel({
 		channelId: voiceChannel.id,
