@@ -46,7 +46,7 @@ module.exports.execute = async ({ interaction }) => {
 	const targetUser = interaction.options.getUser("user");
 
 	let message;
-	let file;
+	let file="audio";
 
 	switch (option) {
 		case "replymuon":
